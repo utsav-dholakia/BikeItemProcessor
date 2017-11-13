@@ -1,7 +1,7 @@
 import java.util.HashMap;
 
 public class Ride {
-    String start, end;
+    //String start, end;
     //Start and End time of the ride
     long startTime, endTime;
     //Items carried during the ride <Item Name, Number of items>
@@ -12,9 +12,7 @@ public class Ride {
 
     Ride(){}
 
-    Ride(Long startTime, Long endTime, HashMap<String, Integer> items){
-        this.startTime = startTime;
-        this.endTime = endTime;
+    Ride(HashMap<String, Integer> items){
         this.items = items;
     }
 }

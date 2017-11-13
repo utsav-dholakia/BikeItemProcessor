@@ -7,56 +7,40 @@ public class Main {
 
     public static void main(String[] args) throws ParseException{
 
+        //Create ItemCounter object
+        ItemCounter itemCounter= new ItemCounter();
+
         //Create ride objects
-
-        //To parse hour:minute value into date object
-        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm");
         HashMap<String, Integer> items = new HashMap<>();
-        Date startTime = null;
-        Date endTime = null;
-
-        String time1 = "7:00";
-        String time2 = "7:30";
-        startTime = sdf.parse(time1);
-        endTime = sdf.parse(time2);
         items.put("apple", 2);
         items.put("brownie", 1);
-        Ride ride1 = new Ride(startTime.getTime(), endTime.getTime(), items);
-        ride1.start = time1;
-        ride1.end = time2;
+        //Create ride object with given items
+        Ride ride1 = new Ride(items);
+        //Add ride object to be processed and added to the list in ItemCounter class
+        String startTime = "7:00";
+        String endTime = "7:30";
+        itemCounter.process(ride1, startTime, endTime);
 
-        time1 = "6:30";
-        time2 = "6:59";
         items = new HashMap<>();
-
-        startTime = sdf.parse(time1);
-        endTime = sdf.parse(time2);
         items.put("apple", 1);
         items.put("carrot", 3);
-        Ride ride2 = new Ride(startTime.getTime(), endTime.getTime(), items);
-        ride2.start = time1;
-        ride2.end = time2;
+        Ride ride2 = new Ride(items);
+        //Add ride object to be processed and added to the list in ItemCounter class
+        startTime = "7:10";
+        endTime = "8:00";
+        //itemCounter.process(ride2, startTime, endTime);
 
-
-        time1 = "7:50";
-        time2 = "8:45";
         items = new HashMap<>();
-
-        startTime = sdf.parse(time1);
-        endTime = sdf.parse(time2);
         items.put("apple", 1);
         items.put("brownie", 2);
         items.put("diamond", 4);
-        Ride ride3 = new Ride(startTime.getTime(), endTime.getTime(), items);
-        ride3.start = time1;
-        ride3.end = time2;
+        Ride ride3 = new Ride(items);
+        //Add ride object to be processed and added to the list in ItemCounter class
+        startTime = "7:20";
+        endTime = "7:45";
+        itemCounter.process(ride3, startTime, endTime);
 
-
-        ItemCounter counter = new ItemCounter();
-        counter.process(ride1);
-        counter.process(ride2);
-        counter.process(ride3);
-
-        counter.printItemsPerInterval();
+        //Print the resultant list of items per intervals
+        itemCounter.printItemsPerInterval();
     }
 }
