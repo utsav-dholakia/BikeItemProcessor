@@ -17,8 +17,8 @@ public class Main {
         //Create ride object with given items
         Ride ride1 = new Ride(items);
         //Add ride object to be processed and added to the list in ItemCounter class
-        String startTime = "7:00";
-        String endTime = "7:30";
+        String startTime = "6:00";
+        String endTime = "6:30";
         itemCounter.process(ride1, startTime, endTime);
 
         items = new HashMap<>();
@@ -26,9 +26,9 @@ public class Main {
         items.put("carrot", 3);
         Ride ride2 = new Ride(items);
         //Add ride object to be processed and added to the list in ItemCounter class
-        startTime = "7:10";
-        endTime = "8:00";
-        //itemCounter.process(ride2, startTime, endTime);
+        startTime = "7:00";
+        endTime = "7:30";
+        itemCounter.process(ride2, startTime, endTime);
 
         items = new HashMap<>();
         items.put("apple", 1);
@@ -36,8 +36,8 @@ public class Main {
         items.put("diamond", 4);
         Ride ride3 = new Ride(items);
         //Add ride object to be processed and added to the list in ItemCounter class
-        startTime = "7:20";
-        endTime = "7:45";
+        startTime = "7:00";
+        endTime = "7:20";
         itemCounter.process(ride3, startTime, endTime);
 
         //Print the resultant list of items per intervals

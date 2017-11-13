@@ -86,6 +86,11 @@ public class ItemCounter {
             if(temp.startTime != temp.endTime){
                 //Merge item lists from input and current intervals into newly created interval temp
                 mergeItemLists(input, curr, temp);
+                //If the list had only one ride object and that was conflicting with input object,
+                // add the new element as the new first ride object into the list
+                if(curr == listRoot){
+                    listRoot = temp;
+                }
                 //Set next pointer of previous pointer and move it ahead
                 prev.nextRide = temp;
                 prev = temp;
